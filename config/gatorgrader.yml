@@ -13,7 +13,7 @@ src/main:
             MatchFileFragment --fragment "used.add(" --count 1 --exact
             MatchFileFragment --fragment "public int[][] getGrid(" --count 1 --exact
             MatchFileFragment --fragment "while(checkUsed(" --count 1 --exact
-            MatchFileRegex --regex "this\.grid\.\[[a-zA-Z]\]\[[a-zA-Z]\]\s=\sseed\(\)" --count 1 --exact
+            MatchFileRegex --regex "this\.grid\[[a-zA-Z]\]\[[a-zA-Z]\](\s)?=(\s)?seed\(\)" --count 1 --exact
             MatchFileRegex --regex "do(\s)?{(.*)}(\s)?while\(" --count 1 --exact
             
             
@@ -23,7 +23,7 @@ src/main:
             ConfirmFileExists
             MatchFileFragment --fragment "TODO" --count 0 --exact
             MatchFileFragment --fragment "{Your Name Here}" --count 0 --exact
-            MatchFileFragment --fragment "for(" --count 1
+            MatchFileFragment --fragment "for (" --count 1
             MatchFileFragment --fragment "= new Grid()" --count 1 --exact
             
             

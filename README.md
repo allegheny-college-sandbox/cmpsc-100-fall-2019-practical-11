@@ -7,7 +7,7 @@
 G. Wiz moonlights as a puzzle maker for a local newspaper. This practical will deepen your experience with:
 * `for` loops
 * `2D arrays`
-* Basic algorithms (here, minimums and maxiumums via "Linear Search")
+* Basic algorithms (here, minimums and maximums via "Linear Search")
 * Problem-solving
 
 ## General guidelines for this particular practical session
