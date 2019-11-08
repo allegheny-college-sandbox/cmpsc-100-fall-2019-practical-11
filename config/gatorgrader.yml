@@ -5,32 +5,21 @@ indent: 4
 ---
 src/main:
     java:
-        election/RunElection.java:
+        minmax/Grid.java:
             ConfirmFileExists
             MatchFileFragment --fragment "TODO" --count 0 --exact
             MatchFileFragment --fragment "{Your Name Here}" --count 0 --exact
-            MatchFileFragment --fragment "new Candidate(" --count 1 --exact
-            MatchFileFragment --fragment "new Ballot(" --count 1 --exact
-            MatchFileFragment --fragment "while (" --count 1 --exact
-            MatchFileFragment --fragment ".hasNext()" --count 1 --exact
-            CountSingleLineComments --language Java --count 4
+            MatchFileFragment --fragment "private void setup" --count 1 --exact
+            MatchFileFragment --fragment "used.add(" --count 1 --exact
+            MatchFileFragment --fragment "public int[][] getGrid(" --count 1 --exact
+            MatchFileRegex --regex "checkUsed\([a-zA-Z0-9])\)" --count 1 --exact
+            MatchFileRegex --regex "this\.grid\.\[[a-zA-Z]\]\[[a-zA-Z]\]\s=\sseed\(\)" --count 1 --exact
+            MatchFileRegex --regex "do(\s)?{(.*)}(\s)?while\(" --count 1 --exact
+            
             
 src/main:
     java:
-        election/Ballot.java:
-            ConfirmFileExists
-            MatchFileFragment --fragment "TODO" --count 0 --exact
-            MatchFileFragment --fragment "{Your Name Here}" --count 0 --exact
-            MatchFileFragment --fragment "if (index == -1)" --count 1 --exact
-            MatchFileFragment --fragment "if (index != -1)" --count 1 --exact
-            MatchFileFragment --fragment "return this.form.get(index);" --count 1 --exact
-            MatchFileFragment --fragment "this.form.add(candidate);" --count 1 --exact
-            MatchFileRegex --regex "[a-zA-Z0-9]+\.name,(\s)?[a-zA-Z0-9]+\.getVotes()" --count 1 --exact
-            CountSingleLineComments --language Java --count 2
-
-src/main:
-    java:
-        election/Candidate.java:
+        election/SolveGrid.java:
             ConfirmFileExists
             MatchFileFragment --fragment "TODO" --count 0 --exact
             MatchFileFragment --fragment "{Your Name Here}" --count 0 --exact
