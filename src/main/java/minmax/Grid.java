@@ -47,7 +47,7 @@ public class Grid {
    *
    * @param number Number to check
    */
-  private boolean checkUsed(int number){
+  private boolean checkUsed(int number) {
     if(this.used.indexOf(number) > -1) {
       return true;
     }
