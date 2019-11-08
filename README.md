@@ -7,7 +7,8 @@
 G. Wiz moonlights as a puzzle maker for a local newspaper. This practical will deepen your experience with:
 * `for` loops
 * `2D arrays`
-* Basic algorithms (here, minimums and maximums via "Linear Search")
+* Basic algorithms (here, minimums and maximums via something called "Linear Search")
+    * We will talk more about what precisely linear search _is_ next week; for now, think back to the last lab's `getWinner` method
 * Problem-solving
 
 ## General guidelines for this particular practical session
@@ -38,7 +39,7 @@ An individualized version of this assignment is available on our GitHub Classroo
 
 Thanks to the books that G. Wiz bought from his game show winnings, he's developed quite a taste for puzzle-making. Given that he showed his mathematical puzzle prowess on national television (though the means by which he won may have been somewhat dubious), the local newspaper reached out to G. Wiz to become a weekly puzzle master. Of course, he turns to you for help.
 
-Each week, readers have to find the smallest and largest number in a 10 x 10 grid, reporting each number's location in the grid (by row and column) via mail. A random winner will be selected from the correct answers received, but the newspaper has folks working on computational methods to do the selection, so all we care about is making sure G. Wiz can generate as many puzzles as he needs in order to fill his weekly quota.
+Each week, readers have to find the smallest and largest number in a 10 x 10 grid, reporting each number's location in the grid (by row and column) via mail. A random winner will be selected from the correct answers received, but the newspaper has folks working on computational methods to do the winner selection, so all we care about is making sure G. Wiz can generate as many puzzles as he needs in order to fill his weekly quota and has the answer keys to match.
 
 ## Required deliverables
 
@@ -47,11 +48,14 @@ Each week, readers have to find the smallest and largest number in a 10 x 10 gri
 - [ ] Exists
 - [ ] Contains no `TODO` markers
 - [ ] Contains no `{Your Name Here}` markers
-- [ ] Implements a complete `setup` method which:
-* Traverses the grid row by row, column by column using the `seed` method to populate a given space
-- [ ] Implements a `seed` method that generates a random number from 1-1000 using a `do...while` loop to:
-* Check if a number has already been used
-* If not, add the number to the `used` `ArrayList` after the `do...while` loop completes
+- [ ] Creates an instance variable with `private` visibility called `used` to track `int` values used in the construction of the puzzle
+- [ ] Implements a complete constructor method which:
+* Traverses the grid row by row, column by column using the `seed` method to populate a given space with a random number
+- [ ] Implements a `seed` method that generates a random number from 1-1000 (inclusive) using a `do...while` loop; this method should:
+* Check if a number has already been used using a completed `checkUsed` method
+    * This method should have `private` visibility
+    * This method should return a `boolean`
+* Add the number to the `used` `ArrayList` after the `do...while` loop completes if the number is unique to _this_ puzzle
 - [ ] Implements the correct return type for the `getGrid` method
 
 ### `SolveGrid.java`
@@ -60,10 +64,12 @@ Each week, readers have to find the smallest and largest number in a 10 x 10 gri
 - [ ] Contains no `TODO` markers
 - [ ] Contains no `{Your Name Here}` markers
 - [ ] Correctly implements a `main` method as entry point to run the program
+- [ ] Uses the `getGrid` method of `Grid` to load the generated grid into an array of the correct data type
 - [ ] Prints the generated grid to the screen
 - [ ] Implements enough `for` loops to find:
 * The smallest number (minimum) and its location in the grid
 * The largest number (maxium) and its location in the grid
+* This will require at least 1 (but more likely 2) loops
 - [ ] Prints the minimum and maxiumum (along with their coordinate values) to the screen
 
 #### Sample output

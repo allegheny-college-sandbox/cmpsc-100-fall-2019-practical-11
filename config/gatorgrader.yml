@@ -9,12 +9,14 @@ src/main:
             ConfirmFileExists
             MatchFileFragment --fragment "TODO" --count 0 --exact
             MatchFileFragment --fragment "{Your Name Here}" --count 0 --exact
-            MatchFileFragment --fragment "private void setup" --count 1 --exact
+            MatchFileFragment --fragment "public Grid" --count 1 --exact
             MatchFileFragment --fragment "used.add(" --count 1 --exact
             MatchFileFragment --fragment "public int[][] getGrid(" --count 1 --exact
-            MatchFileFragment --fragment "while(checkUsed(" --count 1 --exact
+            MatchFileFragment --fragment "private boolean checkUsed(int" --count 1 --exact
+            MatchFileFragment --fragment "while (checkUsed(" --count 1 --exact
+            MatchFileFragment --fragment "private ArrayList<Integer> used = new ArrayList<Integer>();" --count 1 --exact
             MatchFileRegex --regex "this\.grid\[[a-zA-Z]\]\[[a-zA-Z]\](\s)?=(\s)?seed\(\)" --count 1 --exact
-            MatchFileRegex --regex "do(\s)?{(.*)}(\s)?while\(" --count 1 --exact
+            MatchFileRegex --regex "do(\s)?{(\n)?(.*)\n(.*)}\n(.*)while" --count 1 --exact
             
             
 src/main:
@@ -23,9 +25,11 @@ src/main:
             ConfirmFileExists
             MatchFileFragment --fragment "TODO" --count 0 --exact
             MatchFileFragment --fragment "{Your Name Here}" --count 0 --exact
+            MatchFileFragment --fragment "public static void main(String[] args) {" --count 1 --exact
             MatchFileFragment --fragment "for (" --count 1
             MatchFileFragment --fragment "= new Grid()" --count 1 --exact
+            MatchFileRegex --regex "int\[\]\[\](\s)?[a-zA-Z0-9]+(\s)?=(\s)?[a-zA-Z0-0]+\.getGrid\(\)" --count 1 --exact
             
             
 ExecuteCommand --command "gradle build"
-CountCommandOutput --command "gradle -q --console plain run" --count 11
+CountCommandOutput --command "gradle -q --console plain run" --count 13

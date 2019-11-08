@@ -34,14 +34,14 @@ public class SolveGrid {
     int min = board[0][0];
     for (int r = 0; r < board.length; r++) {
       for (int c = 0; c < board[r].length; c++) {
-        if(board[r][c] < min) {
+        if (board[r][c] < min) {
           row = r;
           col = c;
-          min=board[r][c];
+          min = board[r][c];
+        }
       }
     }
-  }
-  System.out.println("Minimum value " + min 
+    System.out.println("Minimum value " + min 
                      + " found at R" + (row + 1) 
                      + " C" + (col + 1));
   }

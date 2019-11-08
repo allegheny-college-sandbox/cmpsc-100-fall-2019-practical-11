@@ -9,7 +9,7 @@ import java.util.Random;
  */
 public class Grid {
 
-  ArrayList<Integer> used = new ArrayList<Integer>();
+  private ArrayList<Integer> used = new ArrayList<Integer>();
   private int[][] grid = new int[10][10];
   private Random fill = new Random();
   
@@ -17,13 +17,6 @@ public class Grid {
    *
    */
   public Grid() {
-    setup();
-  }
-  
-  /** Set up the grid.
-   *
-   */
-  private void setup() {
     for (int r = 0; r < this.grid.length; r++) {
       for (int c = 0; c < this.grid[r].length; c++) {
         this.grid[r][c] = seed();
@@ -38,7 +31,8 @@ public class Grid {
     int number;
     do {
       number = fill.nextInt(1000) + 1;
-    } while(checkUsed(number));
+    }
+    while (checkUsed(number));
     this.used.add(new Integer(number));
     return number;
   }
@@ -48,7 +42,7 @@ public class Grid {
    * @param number Number to check
    */
   private boolean checkUsed(int number) {
-    if(this.used.indexOf(number) > -1) {
+    if (this.used.indexOf(number) > -1) {
       return true;
     }
     return false;
@@ -71,8 +65,8 @@ public class Grid {
     }
     display += "\n\n";
     for (int r = 0; r < this.grid.length; r++) {
-      display += "R" + (r+1) + "\t";
-      for(int c = 0; c < this.grid[r].length; c++) {
+      display += "R" + (r + 1) + "\t";
+      for (int c = 0; c < this.grid[r].length; c++) {
         display += this.grid[r][c] + "\t";
       }
       display += "\n";
