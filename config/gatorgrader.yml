@@ -1,0 +1,39 @@
+---
+name: practical-10
+break: true
+indent: 4
+---
+src/main:
+    java:
+        election/RunElection.java:
+            ConfirmFileExists
+            MatchFileFragment --fragment "TODO" --count 0 --exact
+            MatchFileFragment --fragment "{Your Name Here}" --count 0 --exact
+            MatchFileFragment --fragment "new Candidate(" --count 1 --exact
+            MatchFileFragment --fragment "new Ballot(" --count 1 --exact
+            MatchFileFragment --fragment "while (" --count 1 --exact
+            MatchFileFragment --fragment ".hasNext()" --count 1 --exact
+            CountSingleLineComments --language Java --count 4
+            
+src/main:
+    java:
+        election/Ballot.java:
+            ConfirmFileExists
+            MatchFileFragment --fragment "TODO" --count 0 --exact
+            MatchFileFragment --fragment "{Your Name Here}" --count 0 --exact
+            MatchFileFragment --fragment "if (index == -1)" --count 1 --exact
+            MatchFileFragment --fragment "if (index != -1)" --count 1 --exact
+            MatchFileFragment --fragment "return this.form.get(index);" --count 1 --exact
+            MatchFileFragment --fragment "this.form.add(candidate);" --count 1 --exact
+            MatchFileRegex --regex "[a-zA-Z0-9]+\.name,(\s)?[a-zA-Z0-9]+\.getVotes()" --count 1 --exact
+            CountSingleLineComments --language Java --count 2
+
+src/main:
+    java:
+        election/Candidate.java:
+            ConfirmFileExists
+            MatchFileFragment --fragment "TODO" --count 0 --exact
+            MatchFileFragment --fragment "{Your Name Here}" --count 0 --exact
+            
+ExecuteCommand --command "gradle build"
+CountCommandOutput --command "gradle -q --console plain run" --count 11
