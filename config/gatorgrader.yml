@@ -12,17 +12,20 @@ src/main:
             MatchFileFragment --fragment "private void setup" --count 1 --exact
             MatchFileFragment --fragment "used.add(" --count 1 --exact
             MatchFileFragment --fragment "public int[][] getGrid(" --count 1 --exact
-            MatchFileRegex --regex "checkUsed\([a-zA-Z0-9])\)" --count 1 --exact
+            MatchFileFragment --fragment "while(checkUsed(" --count 1 --exact
             MatchFileRegex --regex "this\.grid\.\[[a-zA-Z]\]\[[a-zA-Z]\]\s=\sseed\(\)" --count 1 --exact
             MatchFileRegex --regex "do(\s)?{(.*)}(\s)?while\(" --count 1 --exact
             
             
 src/main:
     java:
-        election/SolveGrid.java:
+        minmax/SolveGrid.java:
             ConfirmFileExists
             MatchFileFragment --fragment "TODO" --count 0 --exact
             MatchFileFragment --fragment "{Your Name Here}" --count 0 --exact
+            MatchFileFragment --fragment "for(" --count 1
+            MatchFileFragment --fragment "= new Grid()" --count 1 --exact
+            
             
 ExecuteCommand --command "gradle build"
 CountCommandOutput --command "gradle -q --console plain run" --count 11
